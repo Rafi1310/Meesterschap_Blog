@@ -1,0 +1,43 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --bg: black;
+    --color: yellow;
+    --text-h1: "Impact", Arial, Helvetica, sans-serif;
+}
+
+body {
+    background-color: var(--bg);
+    color: var(--color);
+    font-family: var(--text-h1);
+}
+
+header {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+h1 {
+    text-shadow: 4px 4px orange;
+}
+
+h2 {
+    text-shadow: 4px 2px 2px orange;
+}
+
+p {
+    font-size: 3em;
+}
+
+section {
+    background-color: darkgray;
+    margin: 2em;
+    box-shadow: 3px 3px 4px gray;
+}
