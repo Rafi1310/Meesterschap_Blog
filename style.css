@@ -1,12 +1,17 @@
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 :root {
     --bg: black;
     --color: yellow;
     --text-h1: "Impact", Arial, Helvetica, sans-serif;
+    
+    /* Navigatie kleuren */
+    --nav-bg: rgba(15, 15, 15, 0.95);
+    --nav-accent: orange;
 }
 
 body {
@@ -15,29 +20,108 @@ body {
     font-family: var(--text-h1);
 }
 
+/* --- HEADER & HERO --- */
 header {
     width: 100vw;
     height: 100vh;
+    position: relative;
+}
+
+.hero-content {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    height: 100%;
+    padding-top: 60px; /* Zorgt dat het niet achter de nav verdwijnt */
 }
 
 h1 {
     text-shadow: 4px 4px orange;
+    font-size: 4em;
+    text-align: center;
 }
 
 h2 {
     text-shadow: 4px 2px 2px orange;
+    font-size: 2em;
+    margin-top: 10px;
 }
 
-p {
-    font-size: 3em;
+/* De dobbelsteen */
+.hero-content p {
+    font-size: 4em; 
+    margin-top: 20px;
 }
 
+/* --- NAVIGATIEBALK --- */
+.special-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: var(--nav-bg);
+    border-bottom: 2px solid #333;
+    z-index: 1000;
+}
+
+.special-nav ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    position: relative;
+    padding: 15px 0;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.special-nav li {
+    margin: 0 15px;
+}
+
+.special-nav a {
+    text-decoration: none;
+    color: var(--color);
+    font-size: 1.2em;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    padding: 10px 15px;
+    display: block;
+    transition: all 0.3s ease;
+}
+
+.special-nav a:hover {
+    color: var(--nav-accent);
+    text-shadow: 2px 2px 10px var(--nav-accent);
+    transform: scale(1.1);
+}
+
+.nav-indicator {
+    position: absolute;
+    bottom: -2px; /* Plakt netjes onderaan de rand */
+    height: 4px;
+    background-color: var(--nav-accent);
+    border-radius: 4px 4px 0 0;
+    box-shadow: 0 -2px 15px var(--nav-accent);
+    transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    pointer-events: none;
+}
+
+/* --- MAIN CONTENT --- */
 section {
     background-color: darkgray;
-    margin: 2em;
+    color: black; /* Leesbaarheid op de grijze achtergrond */
+    margin: 3em auto;
+    padding: 2em;
+    max-width: 800px; /* Zorgt dat de tekst niet te breed wordt */
     box-shadow: 3px 3px 4px gray;
+    border-radius: 8px; /* Optioneel: maakt de hoekjes iets ronder */
+}
+
+.normale-tekst {
+    font-size: 1.2em;
+    font-family: Arial, Helvetica, sans-serif; /* Een beter leesbaar lettertype voor lappen tekst */
+    margin-top: 15px;
+    line-height: 1.6;
 }
