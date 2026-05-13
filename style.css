@@ -1,3 +1,7 @@
+html {
+    scroll-behavior: smooth; /* Zorgt voor een zachte, glijdende animatie als je op een #link klikt */
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -33,7 +37,7 @@ header {
     justify-content: center;
     align-items: center;
     height: 100%;
-    padding-top: 60px; /* Zorgt dat het niet achter de nav verdwijnt */
+    padding-top: 60px; 
 }
 
 h1 {
@@ -54,7 +58,7 @@ h2 {
     margin-top: 20px;
 }
 
-/* --- NAVIGATIEBALK --- */
+/* --- NAVIGATIEBALK (HOOFDMENU) --- */
 .special-nav {
     position: fixed;
     top: 0;
@@ -99,7 +103,7 @@ h2 {
 
 .nav-indicator {
     position: absolute;
-    bottom: -2px; /* Plakt netjes onderaan de rand */
+    bottom: -2px; 
     height: 4px;
     background-color: var(--nav-accent);
     border-radius: 4px 4px 0 0;
@@ -108,20 +112,155 @@ h2 {
     pointer-events: none;
 }
 
-/* --- MAIN CONTENT --- */
+/* --- MAIN CONTENT (Algemene teksten) --- */
 section {
     background-color: darkgray;
-    color: black; /* Leesbaarheid op de grijze achtergrond */
+    color: black; 
     margin: 3em auto;
     padding: 2em;
-    max-width: 800px; /* Zorgt dat de tekst niet te breed wordt */
+    max-width: 800px; 
     box-shadow: 3px 3px 4px gray;
-    border-radius: 8px; /* Optioneel: maakt de hoekjes iets ronder */
+    border-radius: 8px; 
 }
 
 .normale-tekst {
     font-size: 1.2em;
-    font-family: Arial, Helvetica, sans-serif; /* Een beter leesbaar lettertype voor lappen tekst */
+    font-family: Arial, Helvetica, sans-serif; 
     margin-top: 15px;
     line-height: 1.6;
+}
+
+/* --- PAGINA LAYOUT MET SIDEBAR (Voor de vakken) --- */
+.page-layout {
+    display: flex;
+    max-width: 1200px;
+    margin: 3em auto;
+    padding: 0 20px;
+    gap: 40px;
+    align-items: flex-start;
+}
+
+.page-content section {
+    margin: 0 0 2em 0; 
+    max-width: 100%;
+    
+    /* Deze regel is cruciaal! Het vertelt de browser om 100px afstand te houden 
+       van de bovenkant, zodat de tekst NIET onder je vaste navigatiebalk verdwijnt */
+    scroll-margin-top: 100px; 
+}
+
+/* Omdat de section hier binnen .page-content valt, halen we de margin auto weg zodat hij mooi uitlijnt */
+.page-content section {
+    margin: 0 0 2em 0; 
+    max-width: 100%;
+}
+
+.page-sidebar {
+    flex: 1;
+    background-color: var(--nav-bg); 
+    border: 2px solid var(--nav-accent); 
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    position: sticky;
+    top: 100px; 
+}
+
+.page-sidebar h3 {
+    color: var(--color); 
+    font-family: var(--text-h1);
+    font-size: 1.8em;
+    letter-spacing: 1px;
+    margin-bottom: 15px;
+    border-bottom: 2px solid var(--nav-accent);
+    padding-bottom: 10px;
+}
+
+.subnav-lijst {
+    list-style: none;
+    padding: 0;
+}
+
+.subnav-lijst li {
+    margin: 12px 0;
+}
+
+.subnav-lijst a {
+    color: white;
+    text-decoration: none;
+    font-family: Arial, sans-serif;
+    font-size: 1.1em;
+    display: block; 
+    padding: 8px 12px;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.subnav-lijst a:hover, 
+.subnav-lijst a.active-sub {
+    background-color: rgba(255, 165, 0, 0.2); 
+    color: var(--nav-accent);
+    padding-left: 20px; 
+}
+
+/* --- RESPONSIEF MAKEN (Voor mobiel) --- */
+@media (max-width: 800px) {
+    /* Zorg dat de 4 menu items iets kleiner worden op mobiel, zodat ze nog passen */
+    .special-nav a {
+        font-size: 1em;
+        padding: 10px 8px;
+        letter-spacing: 1px;
+    }
+    .special-nav li {
+        margin: 0 5px;
+    }
+
+    /* Zet de sidebar netjes onder de content op kleine schermen */
+    .page-layout {
+        flex-direction: column; 
+    }
+    .page-sidebar {
+        width: 100%;
+        position: relative;
+        top: 0;
+    }
+}
+
+/* --- SCROLL PIJL --- */
+.scroll-arrow {
+    position: absolute;
+    bottom: 40px; /* Zweeft iets boven de onderkant van het scherm */
+    left: 50%;
+    transform: translateX(-50%); /* Zorgt dat hij exact in het midden staat */
+    color: var(--color); /* Jouw gele kleur */
+    font-size: 3em;
+    text-decoration: none;
+    font-weight: bold;
+    text-shadow: 0 0 15px var(--nav-accent); /* Oranje gloed */
+    z-index: 10;
+    
+    /* Roept de animatie aan: 2 seconden duren, en eindeloos herhalen */
+    animation: bounce 2s infinite;
+}
+
+.scroll-arrow:hover {
+    color: white;
+    text-shadow: 0 0 20px var(--color);
+}
+
+/* De stuiter-animatie (Keyframes) */
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0) translateX(-50%);
+    }
+    40% {
+        transform: translateY(-20px) translateX(-50%); /* Springt 20px omhoog */
+    }
+    60% {
+        transform: translateY(-10px) translateX(-50%); /* Springt nog een klein beetje na */
+    }
+}
+
+#begin-content {
+    scroll-margin-top: 100px;
 }
