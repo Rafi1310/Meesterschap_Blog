@@ -1,20 +1,26 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="nl">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/style.css">
-    <title>Document</title>
+    <title>Sprekers - Meesterschap-Blog</title>
 </head>
+
 <body>
+    <script>
+        if (localStorage.getItem('websiteThema') === 'light') {
+            document.body.classList.add('light-theme');
+        }
+    </script>
     <header>
         <nav class="special-nav">
             <ul>
                 <li><a href="/index.html">Home</a></li>
-                <li><a href="pages/vakken.html">Vakken</a></li>
-                <li class="active"><a href="pages/sprekers.html">Sprekers</a></li>
-                <li><a href="pages/reflectie.html">Reflectie</a></li>
-                <!-- De gloeiende lijn -->
+                <li><a href="/pages/vakken.html">Vakken</a></li>
+                <li class="active"><a href="/pages/sprekers.html">Sprekers</a></li>
+                <li><a href="/pages/reflectie.html">Reflectie</a></li>
                 <div class="nav-indicator"></div>
             </ul>
         </nav>
@@ -24,7 +30,670 @@
             <h2>De sprekers die we als weekly nerd hadden</h2>
         </div>
         <a href="#begin-content" class="scroll-arrow">↓</a>
-        </header>
-        <script src="/script.js"></script>
+    </header>
+
+    <main class="speakers-layout" id="begin-content">
+
+        <section class="speaker-card">
+            <div class="speaker-foto">
+                <img src="/images/ppkfoto.jpg" alt="Foto van Spreker 1">
+            </div>
+            <div class="speaker-info">
+                <h2>Peter-Paul Koch</h2>
+                <h4 class="speaker-titel">Browsers & support detection</h4>
+                <p class="normale-tekst">
+                    <strong>Wat is een browser</strong><br>
+                    Een browser connect met het web.<br>
+                    Browsers moeten dingen ophalen. Html, css, DOM(document object model, kopie van je html voor
+                    javascript), AOM(accesabilty object model, is voor screenreaders en vergelijkbaar), interface en de
+                    javascript engine.<br>
+                    Parser is een stukje programma die een string neemt en kijkt wat erin staat. Leest tekst en maakt de
+                    instructies.<br>
+                    Layout betekent hoe ziet de pagina er precies uit. Ergens in de browser zit een stuk dat bepaalt hoe
+                    dat er dan uit ziet.<br>
+
+                </p>
+                <div class="extra-tekst">
+                    <p class="normale-tekst">Kijk uit met veranderingen van de layout. Het liefst gebruik maken van
+                        queries en de layout niet te
+                        vaak veranderen. Maak het niet al te ingewikkeld.<br><br>
+
+                        <strong>Rendering engine.</strong><br>
+                        Verantwoordelijk voor de html en css parsing en rendering, constructie van de dom en aom
+                        trees.<br>
+                        Dus niet interface of javascript engine. Een redering engine kan voor meerdere browsers gebruikt
+                        worden. Chrome, arc, opera, vivaldi gebruiken allemaal chromium en blink. Deze interpreteren de
+                        html
+                        en de css op dezelfde manier.<br><br>
+
+                        <strong>Core vs DOM</strong><br>
+                        Core: Wat javascript een programmeertaal maakt.<br>
+                        Dom: de manier waarop javascript delen van de html pagina kan lezen.<br><br>
+
+                        <strong>Render blocking</strong><br>
+                        Wachten to je html helemaal ingeladen is<br><br>
+
+                        <strong>CSS</strong><br>
+                        Javascript, tenzij async of defer<br>
+                        Zorgen dat javascript pas helmaal is ingeladen als de html is ingeladen.<br><br>
+
+                        <strong>async</strong><br>
+                        Onderin je html<br>
+                        Defer vs async<br>
+                        Do it now: &lt;script src&gt;<br>
+                        Do it later: &lt;script defer src&gt;<br>
+                        I dont care when you do it, just not now: &lt;script async src&gt;<br><br>
+
+                        <strong>Backwards compatibility</strong><br>
+                        Als een browser ooit iets heeft ondersteund zou het altijd ondersteunt moeten blijven. Het zou
+                        dus
+                        altijd moeten werken.<br>
+                        Als je doctype weghaalt gaat het internet explorer 6 gebruiken.<br>
+                        [form object].elements<br>
+                        &lt;body bgcolor=”abdaca”&gt;<br>
+                        Content box model<br>
+                        &lt;frameset&gt;<br>
+                        html blink tag word niet meer ondersteund.<br><br>
+
+                        <strong>Browsers als platform</strong><br>
+                        “browsers are the most hostile developpmetn platforms in the world” -Douglas Crockford<br><br>
+
+                        <strong>Korte geschiedenis</strong><br>
+                        WWW Browser (1990) - Allereerste browser, gebouwd te Cern door Tim Berners-Lee en consorten.
+                        Herbouwd in 2019 (worldwideweb.cern.ch). Zowel browser als html editor.<br>
+                        Mosaic (1993) → ervoor gezorgd dat plaatjes konden laten zien.<br>
+                        Netscape (1994) → de eerste echte browser. Moest je voor betalen.<br>
+                        Internet explorer (1995) → Hij is gratis, kon je zomaar downloaden. Hierdoor kwam netscape
+                        4(gratis), maar is een verschrikkelijke browser.<br>
+                        Opera (1995)<br>
+                        IE 5 Mac (2000) → Eerste browser voor de mac.<br>
+                        Konqueror (2000) → Was een hobby project van een paar linux gasten. Omzeilden problemen die
+                        explorer
+                        had. Is belangrijk omdat het uiteindelijk webkit werd, de rendering engine van safari.<br>
+                        Safari (2003) →<br>
+                        Firefox (2004) → Rendering engine is Gekko.<br>
+                        Safari iOS (2007) → Had touch events.<br>
+                        Chrome (2008) → Hebben hun eigen rendering engine gesplitst van webkit. Dit is nu blink.<br>
+                        Flow (2020) → Heeft z’n eigen rendering engine. Ondersteund sommige delen van css niet.<br>
+                        Ladybird (2024) → Van een zweedse gast. Heeft die gemaakt omdat die een hobby project nodig had
+                        om
+                        van z’n drugsverslaving af te komen.<br>
+                        Igalia → Zijn geen browser maker , maar weten veel van browsers af. Spaans bedrijf. Ik heb deze
+                        aantekeningen in notion gemaakt. Kan je het zo maken dat ik het makkelijk kan kopieren en
+                        plakken in
+                        vscode.<br>
+                    </p>
+
+                </div>
+                <button class="lees-meer-btn">Lees meer</button>
+            </div>
+        </section>
+
+        <section class="speaker-card reverse">
+            <div class="speaker-foto">
+                <img src="/images/robbert.png" alt="Foto van Spreker 2">
+            </div>
+            <div class="speaker-info">
+                <h2>Robbert Broersma</h2>
+                <h4 class="speaker-titel">ff formulieren maken met NL design system richtlijnen</h4>
+                <p class="normale-tekst"><strong>Formulieren maken met NL Design System richtlijnen</strong><br><br>
+
+                    <strong>Opbouw van een formulier</strong><br>
+                    Introductietekst.<br>
+                    Informatie vragen die nodig is.<br>
+                    Gebruiker kan voor inzending de ingevoerde waardes controleren, wijzigen of ongedaan maken.<br>
+                    Na “volgende” of “verzenden” verschijnt een samenvatting van alle fouten.<br>
+                    Na verzenden verschijnt een duidelijke bevestiging.<br><br>
+
+                    <strong>Inhoud van een formulier</strong><br>
+                    Alleen informatie die nodig is.<br>
+                    Verplichte velden goed aangeven.<br>
+                    Uitleggen waarom je specifieke informatie nodig hebt.<br>
+                    Gebruiker dezelfde informatie niet twee keer vragen.<br>
+                    Geen jargon of gekke afkortingen.<br><br>
+                </p>
+                <div class="extra-tekst">
+                    <p class="normale-tekst">
+                        <strong>Design van de componenten</strong><br>
+                        Check het kleurcontrast van componenten. De rand moet voldoende contrast hebben met de
+                        achtergrondkleur.<br>
+                        Check het kleurcontrast van subtielere tekst. De tekst van de beschrijving en van de placeholder
+                        moet voldoende contrast hebben met de achtergrondkleur.<br>
+                        Zijn de componenten groot genoeg. 44x44px is gebruiksvriendelijk.<br><br>
+
+                        <strong>Design van het formulier</strong><br>
+                        Staan er buttons aan het eind van de regels, zoals “volgende”?<br>
+                        De voortgang wordt getoond boven het formulier in tekst, bijv “stap 2 van 4”.<br>
+                        De navigatie (volgende, vorige, annuleren) is consistent in elke stap.<br>
+                        Het is duidelijk in welke stap het formulier daadwerkelijk wordt verzonden.<br>
+                        Elk invoerveld heeft een zichtbaar label dat boven het invoerveld staat.<br>
+                        Er staat “verplicht” of “niet verplicht” in tekst, niet alleen met een sterretje of
+                        kleur.<br><br>
+
+                        <strong>Flow van het formulier</strong><br>
+                        Staan er formuliervelden in logische volgorde?<br>
+                        Zijn er meerdere contactmogelijkheden beschikbaar om hulp te krijgen? Zorg voor meerdere
+                        manieren
+                        zodat het voor iedereen mogelijk is contact op te nemen.<br>
+                        Wordt hulp op meerdere plekken aangeboden?<br>
+                        De voortgang wordt getoond boven het formulier.<br><br>
+
+                        <strong>Labels</strong><br>
+                        Gebruik een &lt;label for="input-id"&gt; voor het formulierveld, en zorg dat alles een gekoppeld
+                        label heeft.<br>
+                        Andere code voor een label, zoals aria-label="" of title="" moeten in elk geval de zichtbare
+                        labeltekst bevatten, anders werkt het niet met spraakbesturing.<br>
+                        “Voorna(a)m(en)” Nope! Voornaam (1 of meerdere) yep.<br><br>
+
+                        <strong>Makkelijker invullen</strong><br>
+                        Als de gebruiker is ingelogd, dan worden bekende gegevens vooraf ingevuld.<br>
+                        Knippen en plakken is overal toegestaan.<br>
+                        Controleer of de browser autocomplete aanbiedt om velden in te vullen, waar je dat
+                        verwacht.<br><br>
+
+                        <strong>Beschrijving bij een veld</strong><br>
+                        Belangrijke uitleg is altijd zichtbaar. Essentiële informatie staat in een description of in de
+                        labeltekst, niet alleen in een placeholder of tooltip.<br>
+                        Extra teksten bij een formulierveld zijn gekoppeld met aria-describedby op het formulier
+                        element,
+                        zoals &lt;input&gt; of &lt;select&gt;.<br><br>
+
+                        <strong>Beschrijving, foutmeldingen</strong><br>
+                        Feedback zoals: “42 van de 100 tokens” of “je wachtwoord voldoet aan de eisen”.<br>
+                        De beschrijving en foutmelding van Checkbox Group en Radio Group zijn gekoppeld aan de
+                        &lt;fieldset&gt; met aria-describedby.<br><br>
+
+                        <strong>Controleren</strong><br>
+                        De laatste stap toont een samenvatting van alle ingevoerde gegevens.<br>
+                        Het formulier biedt de mogelijkheid om een inzending te controleren, te wijzigen of ongedaan te
+                        maken.<br>
+                        Voorkom met &lt;bdi translate="no"&gt; dat wat de gebruiker zelf heeft ingevoerd, wordt
+                        vertaald.
+                        Dit is met name op de controle-pagina en de bevestigingspagina belangrijk.<br><br>
+
+                        <strong>Bevestiging</strong><br>
+                        Is er een duidelijke bevestiging? Een goede bevestiging vermeldt welke informatie is verstuurd,
+                        of
+                        verwijst ernaar.<br><br>
+
+                        <strong>Validatie</strong><br>
+                        De regels voor een invoerveld zijn vooraf duidelijk, bijvoorbeeld welke tekens, of hoe lang de
+                        tekst
+                        mag zijn.<br>
+                        Boven het formulier staat uitleg over hoe verplichte of niet-verplichte velden zijn
+                        aangemerkt.<br><br>
+
+                        <strong>Toetsenbord</strong><br>
+                        Doorloop het formulier volledig met alleen het toetsenbord (zonder muis). De volgende dingen
+                        moeten
+                        goed werken:<br>
+                        Elk invoerveld, elke button en elke link is bereikbaar met de tab-toets.<br>
+                        De tabvolgorde is logisch, meestal is dat: van boven naar beneden, van links naar rechts.<br>
+                        De focusindicator is goed zichtbaar.<br>
+                        Sommige componenten werken met andere toetsen dan tab.<br><br>
+
+                        <strong>Screenreader - invullen</strong><br>
+                        Het label van elk veld wordt gelezen als het veld focus krijgt.<br>
+                        De beschrijving van een veld wordt voorgelezen als het veld focus krijgt.<br>
+                        Verplichte velden worden als verplicht aangeduid bij het voorlezen.<br>
+                        Foutmeldingen en feedback onderbreken de gebruiker niet bij het invullen.<br>
+                        Feedback over invoer (bijvoorbeeld: “je wachtwoord voldoet aan de eisen”) wordt automatisch
+                        voorgelezen, zonder dat de gebruiker er naartoe hoeft te navigeren.<br><br>
+
+                        <strong>Screenreader - navigatie</strong><br>
+                        De voortgang is hoorbaar voor screenreader gebruikers.<br>
+                        Na verzenden verschijnt er een duidelijke bevestiging dat het formulier succesvol is
+                        verzonden.<br>
+                        Positieve statusberichten na het versturen (zoals “formulier verzonden”) worden automatisch
+                        voorgelezen.<br><br>
+
+                        <strong>Screenreader - validatie & Vertaalsoftware</strong><br>
+                        Foutmeldingen worden voorgelezen.<br>
+                        Foutmeldingen onderbreken de gebruiker niet bij het invullen.<br>
+                        Houd altijd rekening met de impact van vertaalsoftware op je formulierinvoer.
+                    </p>
+                </div>
+                <button class="lees-meer-btn">Lees meer</button>
+            </div>
+        </section>
+
+        <section class="speaker-card">
+            <div class="speaker-foto">
+                <img src="/images/johan.jpeg" alt="Foto van Spreker 3">
+            </div>
+            <div class="speaker-info">
+                <h2>Johan Huijkman</h2>
+                <h4 class="speaker-titel">Accessibility</h4>
+                <p class="normale-tekst"><strong>“Je gaat het pas zien als je het doorhebt”</strong><br>
+                    En, je hoort het pas als je luistert.<br>
+                    Hij laat ons luisteren naar iets wat heel erg versneld is (Dit was de volledige homepagina van
+                    bol.com).<br><br>
+
+                    <strong>WCAG (Web Content Accessibility Guidelines)</strong><br>
+                    Perceivable, operable, understandable and robust. Dit zijn de basisprincipes van de WCAG.<br><br>
+
+                    <strong>Afbeeldingen en Alt-teksten</strong><br>
+                    Elke foto hoeft niet een alt-tekst te hebben. Elke foto moet wel een alt-attribuut hebben (zoals
+                    alt=""),
+                </p>
+                <div class="extra-tekst">
+                    <p class="normale-tekst">die hoeft dus niet per se gevuld te worden. Dit is een veelvoorkomend
+                        probleem. Je hoeft
+                        hem alleen in te vullen als het plaatje ook echt wat toevoegt aan de inhoud.<br><br>
+
+                        <strong>Screenreaders</strong><br>
+                        Er zijn verschillende toetsenbordcombinaties die je kan gebruiken met een screenreader, je hoeft
+                        dus
+                        niet alleen de tab-toets te gebruiken.<br><br>
+
+                        <strong>Ervaring: Martijn (slechtziend)</strong><br>
+                        Hij gebruikt zijn scherm door heel erg in te zoomen, alleen zijn niet alle websites daar goed op
+                        gebouwd. Veel dingen verspringen waardoor hij de website dan niet goed kan gebruiken. Tijdens
+                        het
+                        scrollen komt bijvoorbeeld de navigatiebalk over het halve scherm heen waardoor je niks meer
+                        ziet.
+                        (Hij testte dit uit met de website van Intertoys).<br>
+                        Je moet websites eigenlijk testen tot iets van 400% zoom. Nu wordt dat vaak maar gedaan tot
+                        200%.<br><br>
+
+                        <strong>Wat heeft Martijn nodig:</strong><br>
+                        Schaalbaarheid.<br>
+                        Contrast.<br>
+                        Gerelateerde informatie bij elkaar.<br>
+                        Visuele indicatoren zoals een duidelijke focusrand.<br><br>
+
+                        <strong>Ervaring: Naduah</strong><br>
+                        Websites met felle kleuren triggeren haar heel erg.<br><br>
+
+                        <strong>Ervaring: Guido (29, autistisch)</strong><br>
+                        Heeft last van visuele prikkels en audioprikkels. Ze komen bij hem extra hard binnen. Als
+                        websites
+                        zich willen uitsloven met visuele dingen, kan hij zich niet echt goed meer focussen.<br><br>
+
+                        <strong>Wat heeft Guido nodig:</strong><br>
+                        Rustige lay-out en vormgeving.<br>
+                        Duidelijke instructies en meldingen.<br>
+                        Voorspelbaarheid.
+                    </p>
+                </div>
+                <button class="lees-meer-btn">Lees meer</button>
+            </div>
+        </section>
+
+        <section class="speaker-card">
+            <div class="speaker-foto">
+                <img src="/images/hans.jpg" alt="Foto van Spreker 3">
+            </div>
+            <div class="speaker-info">
+                <h2>Hans de Zwart</h2>
+                <h4 class="speaker-titel">Privacy</h4>
+                <p class="normale-tekst"><strong>Niets te verbergen</strong><br>
+                    We zijn begonnen door met de hele klas te gaan staan. Aan de voorkant van de ruimte stond iedereen
+                    die niks te verbergen had en achteraan die veel niet willen delen. Ging heel erg om privacy.<br>
+                    We hebben gekeken naar een video waarbij de interviewer de hele tijd de vraag ging stellen of ze
+                    iets te verbergen hebben. De meeste zeggen dat ze niks te verbergen hebben, maar dan stelt die veel
+
+                </p>
+                <div class="extra-tekst">
+                    <p class="normale-tekst">vragen en blijkt dat ze nog best wat dingen niet willen zeggen.<br><br>
+
+                        Een individueel recht (Met rust gelaten worden).<br>
+                        Een sociaal recht (In elke context anders kunnen zijn).<br>
+                        Een democratische noodzaak (Autonoom je eigen mening kunnen vormen).<br>
+                        Wat we wel en niet willen delen verschilt per context. (Dokter? Je familie? Je vrienden? Je
+                        werk?)<br>
+                        Privacy als contextuele integriteit (Er worden geen onverwachte dingen gedeeld met onverwachte
+                        partijen).<br>
+                        Het gaat dus ook over controle.<br>
+                        “Never reveal yourself”, comedy show.<br><br>
+
+                        <strong>Privacy wetgeving</strong><br>
+                        Eigenlijk gewoon common sense over hoe je met elkaar om zou moeten gaan.<br>
+                        Gaat over persoonsgegevens.<br><br>
+
+                        <strong>Toestemming</strong><br>
+                        Die moet vrij en geïnformeerd zijn, en kan worden ingetrokken. Het moet wel een vrije mening
+                        zijn.
+                        Ze mogen dus niet een “pistool” tegen je aanhouden om je te dwingen.<br>
+                        Bij een vitaal belang.<br>
+                        Bij een algemeen belang of voor het openbaar gezag.<br>
+                        Bij een gerechtvaardigd belang.<br>
+                        Bij wetgeving geldt doelbinding.<br>
+                        Je mag de data alleen maar herbruiken voor het doel waarvoor je het verzameld hebt.<br>
+                        En je hebt rechten. De meest relevante zijn: je mag je gegevens inzien, corrigeren en aanvullen.
+                        Je
+                        hebt recht op vergetelheid.<br>
+                        Je mag je data meenemen naar een andere partij. Als je Spotify hebt zou je je playlist dus mee
+                        mogen
+                        nemen naar een andere streaming service. Dit is dataportabiliteit. Je moet al je gegevens mee
+                        kunnen
+                        nemen.<br>
+                        Door de AVG is data over personen niet alleen maar een asset…<br>
+                        Data over personen is ook een liability.<br>
+                        Dus om aan de wet te voldoen moet je een strategie toepassen van dataminimalisatie.<br>
+                        Hoe kun je de functionaliteit krijgen die je wilt met een garantie van zoveel mogelijk privacy.
+                        Vaak
+                        met cryptografie en slimme algoritmische oplossingen. (Hashes, blind signatures, statistical
+                        disclosure control, differential privacy, revocable privacy, attribute based credentials,
+                        etc).<br><br>
+
+                        <strong>Privacy op het web</strong><br>
+                        Hoeveel partijen weten van je bezoek op een website? (Heel veel).<br>
+                        Is er nog een websitebezoek dat niet bij Google in beeld is?
+                    </p>
+                </div>
+                <button class="lees-meer-btn">Lees meer</button>
+            </div>
+        </section>
+
+        <section class="speaker-card">
+            <div class="speaker-foto">
+                <img src="/images/kilian.jpeg" alt="Foto van Spreker 3">
+            </div>
+            <div class="speaker-info">
+                <h2>Kilian Valkhof</h2>
+                <h4 class="speaker-titel">The rule of least power</h4>
+                <p class="normale-tekst">Heeft een eigen webbrowser gemaakt (Polypane), waarin studenten er gratis
+                    gebruik van mogen maken.<br><br>
+
+                    <strong>The rule of least power</strong><br>
+                    Bedacht door W3C. Choose the least powerful language suitable for a given purpose.<br>
+                    Als iets in HTML kan, dan hoeft het niet in CSS. Als het niet in CSS kan dan moet je JS
+                    gebruiken.<br>
+                    Declaratieve talen, HTML en CSS. Jij bepaalt, de browser regelt het.<br>
+
+                </p>
+                <div class="extra-tekst">
+                    <p class="normale-tekst">Once you learn something, you don’t learn it again. Als je iets hebt
+                        geschreven dan blijft het
+                        altijd werken in de browser.<br><br>
+
+                        <strong>Custom switches</strong><br>
+                        &lt;label&gt;<br>
+                        &nbsp;&nbsp;&lt;input type="checkbox"/&gt;<br>
+                        &nbsp;&nbsp;My awesome feature<br>
+                        &lt;/label&gt;<br><br>
+
+                        Belangrijk: appearance: none;<br>
+                        input {<br>
+                        &nbsp;&nbsp;appearance: none;<br>
+                        }<br>
+                        Dit zorgt er voor dat het nog geen vorm heeft. Dit ga je zelf met de CSS doen.<br><br>
+
+                        input:before<br><br>
+
+                        :checked. Pseudo element dat zorgt dat je label een ‘checked’ status krijgt. Dus als je hem hebt
+                        aangeklikt.<br>
+                        :checked {<br>
+                        &nbsp;&nbsp;background: green;<br>
+                        }<br><br>
+
+                        :checked:before {<br>
+                        &nbsp;&nbsp;transform: translateX(1rem);<br>
+                        }<br><br>
+
+                        input:focus-visible {<br>
+                        &nbsp;&nbsp;outline: 2px solid dodgerblue;<br>
+                        &nbsp;&nbsp;outline-offset: 2px;<br>
+                        }<br><br>
+
+                        input:focus {<br>
+                        &nbsp;&nbsp;/* no */<br>
+                        &nbsp;&nbsp;outline: none;<br>
+                        &nbsp;&nbsp;/* yes */<br>
+                        &nbsp;&nbsp;outline-color: transparent;<br>
+                        }<br><br>
+
+                        <strong>In-page transitions</strong><br>
+                        html {<br>
+                        &nbsp;&nbsp;scroll-behavior: smooth;<br>
+                        }<br><br>
+
+                        @media (prefers-reduced-motion: no-preference) {<br>
+                        &nbsp;&nbsp;html {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;scroll-behavior: smooth;<br>
+                        &nbsp;&nbsp;}<br>
+                        }<br><br>
+
+                        #my-target {<br>
+                        &nbsp;&nbsp;scroll-margin-top: 100px;<br>
+                        }<br>
+                        Zo geef je aan tot hoever het tot de bovenkant komt.<br><br>
+
+                        #my-target:target {<br>
+                        &nbsp;&nbsp;outline: 10px solid deeppink;<br>
+                        &nbsp;&nbsp;transition: 2s ease-in-out outline;<br>
+                        }<br><br>
+
+                        <strong>Details / Summary</strong><br>
+                        &lt;details&gt;<br>
+                        &nbsp;&nbsp;&lt;summary&gt;Here is my title&lt;/summary&gt;<br>
+                        &nbsp;&nbsp;&lt;p&gt;Tekst&lt;/p&gt;<br>
+                        &lt;/details&gt;<br><br>
+
+                        &lt;details open&gt;<br>
+                        &nbsp;&nbsp;&lt;summary&gt;Here is my title&lt;/summary&gt;<br>
+                        &nbsp;&nbsp;&lt;p&gt;tekst&lt;/p&gt;<br>
+                        &lt;/details&gt;<br><br>
+
+                        summary::marker {<br>
+                        &nbsp;&nbsp;font-size: 1.5em;<br>
+                        &nbsp;&nbsp;content: "emoji";<br>
+                        }<br><br>
+
+                        [open] summary::marker {<br>
+                        &nbsp;&nbsp;font-size: 1.5em;<br>
+                        &nbsp;&nbsp;content: "emoji";<br>
+                        }<br><br>
+
+                        summary:hover {<br>
+                        &nbsp;&nbsp;cursor: pointer;<br>
+                        &nbsp;&nbsp;background: deeppink;<br>
+                        }<br>
+                        Zorgt dat je een pijltje krijgt als je ergens over hovert.<br><br>
+
+                        <strong>Dialog</strong><br>
+                        &lt;dialog&gt;<br>
+                        &nbsp;&nbsp;&lt;form method="dialog"&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;h1&gt;This is a pretty dialog&lt;/h1&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;button type="submit"&gt;Close&lt;/button&gt;<br>
+                        &nbsp;&nbsp;&lt;/form&gt;<br>
+                        &lt;/dialog&gt;<br>
+                        Dialog wordt op de top layer geplaatst.<br><br>
+
+                        dialog::backdrop {<br>
+                        &nbsp;&nbsp;background: ... ;<br>
+                        &nbsp;&nbsp;backdrop-filter: blur;<br>
+                        }<br><br>
+
+                        dialog {<br>
+                        &nbsp;&nbsp;@starting-style {<br>
+                        &nbsp;&nbsp;}<br>
+                        }<br><br>
+
+                        <strong>Fieldsizing</strong><br>
+                        input,<br>
+                        textarea {<br>
+                        &nbsp;&nbsp;field-sizing: content;<br>
+                        }<br>
+                        Dit zorgt dat de inhoud de breedte bepaalt.<br><br>
+
+                        select,<br>
+                        ::picker(select) {<br>
+                        &nbsp;&nbsp;appearance: base-select;<br>
+                        }<br>
+                        Picker is het dropdown dingetje.
+                    </p>
+                </div>
+                <button class="lees-meer-btn">Lees meer</button>
+            </div>
+        </section>
+
+        <section class="speaker-card">
+            <div class="speaker-foto">
+                <img src="/images/voorhoede.png" alt="Foto van Spreker 3">
+            </div>
+            <div class="speaker-info">
+                <h2>De voorhoede</h2>
+                <h4 class="speaker-titel">Frontend bedrijf dat klanten helpt met software problemen</h4>
+                <p class="normale-tekst"><strong>Soms ziet mijn werk er zo uit</strong><br>
+                    Geanimeerde letters<br>
+                    Werken met clip path<br>
+                    Mix blend mode<br><br>
+
+                    <strong>En soms zo</strong><br>
+                    Vaak berichten van klanten met technische problemen zoals bugs<br><br>
+
+                    <strong>En ook weer soms zo</strong><br>
+                    Code classes<br>
+
+                </p>
+                <div class="extra-tekst">
+                    <p class="normale-tekst">Intervisies<br>
+                        Plug-ins bouwen<br>
+                        Blog posts<br>
+                        Soms schrijft ze plug-ins. Ook schrijft ze blog posts.<br><br>
+
+                        <strong>ZE GEBRUIKT AI</strong><br>
+                        Ze heeft geen technische studie gedaan, ze heeft een talen studie gedaan.<br><br>
+
+                        <strong>Spreker 2: Peter</strong><br>
+                        Accessibility specialist<br>
+                        Samen bouwen aan betere digitale dienstverlening<br><br>
+
+                        <strong>Spreker 3</strong><br>
+                        Offline first - met een webapp om liften te inspecteren.<br>
+                        Willen weg van de Amerikaanse techbedrijven.<br><br>
+
+                        <strong>PWA - progressive web app</strong><br>
+                        Dat je kan navigeren tussen pagina’s zonder internet.<br>
+                        Je moet data kunnen opslaan totdat je weer internet hebt, waarna het naar de server kan worden
+                        doorgestuurd.<br>
+                        Cached content.<br><br>
+
+                        <strong>Kern principes</strong><br>
+                        Start bij geen verbinding<br>
+                        Lokaal opslaan<br><br>
+
+                        <strong>Gebruikers voordelen</strong><br>
+                        Altijd toegang (vliegtuig / buitengebied)<br>
+                        Snellere interface<br>
+                        Besparing op data en batterij<br><br>
+
+                        <strong>Uitdagingen en oplossingen</strong><br>
+                        Conflictbeheer<br>
+                        Wie heeft autoriteit?<br>
+                        Slimme caching en data pruning<br>
+                        Duidelijke sync status<br><br>
+
+                        <strong>Wanneer kiezen</strong><br>
+                        Slechte connectiviteit verwacht<br>
+                        Kritieke data toegang vereist<br>
+                        Productiviteit en field tools
+                    </p>
+                </div>
+                <button class="lees-meer-btn">Lees meer</button>
+            </div>
+        </section>
+
+        <section class="speaker-card">
+            <div class="speaker-foto">
+                <img src="/images/leonie.jpeg" alt="Foto van Spreker 3">
+            </div>
+            <div class="speaker-info">
+                <h2>Leonie Watson</h2>
+                <h4 class="speaker-titel">I love AI</h4>
+                <p class="normale-tekst"><strong>She uses AI as a blind person</strong><br><br>
+
+                    In a document with like 2500 pages she used AI to find the specific place she needs to look for in
+                    the document.<br><br>
+
+                    <strong>Clothes shopping online</strong><br>
+                    Descriptions on clothes are not that good. When it says relaxed fit, what does that mean? When she
+                    puts the image in AI, she gets a way more descriptive message and knows more about how it looks. AI
+
+                </p>
+                <div class="extra-tekst">
+                    <p class="normale-tekst">you can also ask questions. Like the look and feel. Things descriptions
+                        also don’t mention if
+                        something is solid black or not. AI does.<br><br>
+
+                        <strong>Real world descriptions</strong><br>
+                        AI Meta glasses help with that, she can ask what it sees. So she knows what she’s standing in.
+                        She
+                        feels delighted by that.<br><br>
+
+                        <strong>Object identification</strong><br>
+                        AI can help you with what you’re holding. Like the soup you want to eat or the custard you
+                        don’t.
+                        She can use AI to help her find her keys for example.<br><br>
+
+                        <strong>Retail agent</strong><br>
+                        It can help her with shopping. She can ask something she wants. And it tells her where to look,
+                        like
+                        on what website and what the rating is, how it looks and feels. For what occasion she can wear
+                        it.
+                        Also can put it in your basket. Innosearch.ai.<br><br>
+
+                        <strong>Current state of AI</strong><br>
+                        AI is problematic right now, the companies are just not good.<br><br>
+
+                        <strong>Augmentation vs Compensation</strong><br>
+                        Augmentation is a good use of AI.<br>
+                        Compensation. It’s for things she can’t do herself.<br><br>
+
+                        <strong>The state of the web</strong><br>
+                        The web she has. It works kinda well. But not all the time. Of the 66 million images, only 16%
+                        of
+                        them have a text description.<br>
+                        Every failure creates work. Accessibility creates a bigger backlog than other things.<br><br>
+
+                        “Do the hard work so nobody else has to”<br><br>
+
+                        AI is compensating for where the web has failed -> the web has not failed but the developers
+                        have.<br><br>
+
+                        She has a wallet with bitcoin. But didn’t have the right password.
+                    </p>
+                </div>
+                <button class="lees-meer-btn">Lees meer</button>
+            </div>
+        </section>
+
+        <section class="speaker-card">
+            <div class="speaker-foto">
+                <img src="/images/cyd.avif" alt="Foto van Spreker 3">
+            </div>
+            <div class="speaker-info">
+                <h2>Cyd Stumpel</h2>
+                <h4 class="speaker-titel">Prefers enhanced motion</h4>
+                <p class="normale-tekst"><strong>The web I want</strong><br>
+                    She likes to create websites with lots of motion.<br>
+                    A lot of people copy another persons site.<br><br>
+
+                    <strong>The web is a tool</strong><br>
+                    Progressive enhancement<br>
+                    Graceful degradation<br>
+                    
+                </p>
+                <div class="extra-tekst">
+                    <p class="normale-tekst">Different strategies<br><br>
+
+                    <strong>Define the core task</strong><br>
+                    Make sure the main thing works.<br><br>
+
+                    <strong>HTML first</strong><br>
+                    HTML has a lot of functions and doesn’t always need CSS or JS.<br><br>
+
+                    <strong>Semantics</strong></p>
+                </div>
+                <button class="lees-meer-btn">Lees meer</button>
+            </div>
+        </section>
+        <button id="theme-btn" class="theme-toggle-btn">🎨</button>
+    </main>
+
+    <script src="/script.js"></script>
 </body>
+
 </html>

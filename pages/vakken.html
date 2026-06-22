@@ -1,23 +1,30 @@
 <!DOCTYPE html>
 <html lang="nl">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/style.css">
     <title>Vakken - Meesterschap-Blog</title>
 </head>
+
 <body>
+    <script>
+        if (localStorage.getItem('websiteThema') === 'light') {
+            document.body.classList.add('light-theme');
+        }
+    </script>
     <header>
         <nav class="special-nav">
             <ul>
                 <li><a href="/index.html">Home</a></li>
                 <li class="active"><a href="pages/vakken.html">Vakken</a></li> <!-- 'active' staat nu hier -->
-                <li><a href="pages/sprekers.html">Sprekers</a></li>
-                <li><a href="pages/reflectie.html">Reflectie</a></li>
+                <li><a href="/pages/sprekers.html">Sprekers</a></li>
+                <li><a href="/pages/reflectie.html">Reflectie</a></li>
                 <div class="nav-indicator"></div>
             </ul>
         </nav>
-        
+
         <div class="hero-content">
             <h1>Vakken Overzicht</h1>
             <h2>De projecten die ik heb gedaan</h2>
@@ -28,57 +35,98 @@
 
     <!-- De nieuwe structuur voor pagina's MÉT een sidebar -->
     <main class="page-layout" id="begin-content">
-        
+
         <!-- LINKERKANT: De inhoud van het specifieke vak -->
         <article class="page-content">
             <section id="sprint0">
                 <h2>Sprint 0</h2>
-                <p class="normale-tekst">Dit was het eerste vak waar we mee bezig gingen tijdens de minor. Bij dit project kwam je er achter wat je allemaal al kon. Eigenlijk een soort 0 meting</p>
-                <a href="https://github.com/Rafi1310/Website-over-mij">Hier kan je de repo vinden van sprint 0</a>
+                <p class="normale-tekst">Dit was het eerste vak waar we mee bezig gingen tijdens de minor. Bij dit
+                    project kwam je er achter wat je allemaal al kon. Eigenlijk een soort 0 meting. Ik heb heirbij
+                    eigenlijk gewoon een website gemaakt met alles dat ik al kon of wat ik wist dat bestaat en dat
+                    opgezocht hoe dat moet. Ik heb hierbij ook persoonlijke dingen verwerkt, zoals het stukje met de
+                    auto. Dat is een roadtrip met alle landen waardoor ik een roadtrip maakte.</p>
+                <a href="https://rafi1310.github.io/Website-over-mij/" target="_blank">Bekijk de website zelf van sprint
+                    0</a>
             </section>
 
             <section id="browsertech">
                 <h2>BrowserTech</h2>
-                <p class="normale-tekst">Alles wat ik heb geleerd bij browsertech</p>
+                <p class="normale-tekst">Bij dit vak moesten we een erfbelastingformulier omzetten naar digitaal. Maar
+                    dan in de stijl van de ns. Ik heb hier veel bij geleerd, zoals progressive disclosure en hoe het zit
+                    met het fact checken van data, zoals de elf-proef. Dit was best een leuk project dat er van de
+                    buitenkant niet heel ingewikkeld uit ziet, maar wel heel veel achter zit. Ook heb ik met een
+                    datalist gewerkt en als je het land opzoekt geeft die je automatisch de landcode</p>
+                <a href="https://rafi1310.github.io/BrowserTech/" target="_blank">Bekijk de website zelf van
+                    browsertech</a>
             </section>
 
             <section id="css">
                 <h2>CSS To The Rescue</h2>
-                <p class="normale-tekst">Alles wat ik heb geleerd over css</p>
+                <p class="normale-tekst">Bij dit project heb ik geleerd hoe je alles moet doen met css. Voor veel
+                    verschillende functies wil je heel snel javascript gebruiken, terwijl css tegenwoordig heel krachtig
+                    is en heel veel van die dingen al kan. Een van de leukste onderdelen waar ik ook het meeste plezier
+                    mee had met uittesten was het werken met style containers. Je kan zo heel makkelijk met een knop
+                    alles in een keer laten veranderen. Dit vind ik ook oprecht een best hadige container functie. Voor
+                    de rest was dit opzich best een leuk vak.</p>
+                <a href="https://rafi1310.github.io/CSS_to_the_rescue/" target="_blank">Bekijk de website zelf van
+                    css</a>
             </section>
 
             <section id="api">
                 <h2>API</h2>
-                <p class="normale-tekst">Alles wat ik heb geleerd over api.</p>
+                <p class="normale-tekst">Bij dit vak heb ik meer geleerd dan ik dacht. Het ging mij dan niet perse hoe
+                    je een api inlaad, maar meer over hoeveel er eigenlijk wel niet beschikbaar zijn. Web api's vond ik
+                    vooral heel handig. Het maakt een website veel gaver, en zit vaak al ingebouwd in je browser. Je
+                    hoeft het alleen nog maar aan te roepen. Ik vond hier specifiek de viewTransition api heel cool.
+                    Heel makkelijk en ziet er heel gaaf uit.</p>
+                <a href="https://moviefinder-drvr.onrender.com" target="_blank">Bekijk de website zelf van api</a>
             </section>
 
             <section id="hcd">
                 <h2>HCD</h2>
-                <p class="normale-tekst">Alles wat ik heb geleerd over hoe ik websites toegankelijk voor iedereen kan maken.</p>
+                <p class="normale-tekst">Bij dit vak moest ik voor een doof persoon wat maken. Ik heb ervoor gezorgd dat
+                    ze bij podcast op een leuke manier de tekst kon zien. Hierbij kon ze ook alles zelf aanpassen. Zodat
+                    het altijd was zoals zij het wil</p>
+                <a href="https://rafi1310.github.io/HCD/" target="_blank">Bekijk de website zelf van hcd</a>
             </section>
 
             <section id="hackaton">
                 <h2>Hackaton</h2>
-                <p class="normale-tekst">Alles wat ik heb gedaan bij de hackaton.</p>
+                <p class="normale-tekst">Bij dit project hadden we als groep samengewerkt. Hierbij moesten we de website
+                    van de nebula exprorer beter maken. Hierbij gingen we op leuke manieren informatie erover laten
+                    zien. </p>
+                <a href="https://sabrinaz35.github.io/guardians-of-the-galaxy/" target="_blank">Bekijk de website zelf
+                    van de hackaton</a>
+            </section>
+
+            <section id="meesterproef">
+                <h2>Meesterproef</h2>
+                <p class="normale-tekst">Bij de meesterproef moesten we de website voor de visdeurbel beter maken. We
+                    moesten hierbij visualisaties maken die op de website konden komen voor wanneer de visdeurbel werd
+                    uitgeschakeld zodat de website altijd leuk blijft. Zo kan de gebruiker ook terugkijken op alles.</p>
+                <a href="https://datavisdeurbel.onrender.com/" target="_blank">Bekijk de website zelf van de
+                    meersterproef</a>
             </section>
         </article>
 
         <!-- RECHTERKANT: De subnavigatie voor alle vakken -->
-       <aside class="page-sidebar">
+        <aside class="page-sidebar">
             <h3>Alle Vakken</h3>
             <ul class="subnav-lijst">
                 <!-- Let op de '#' voor de naam. Dit vertelt de browser: blijf op deze pagina en zoek het ID! -->
                 <li><a href="#sprint0">Sprint 0</a></li>
-                <li><a href="#browsertech">BrowserTech</a></li> 
+                <li><a href="#browsertech">BrowserTech</a></li>
                 <li><a href="#css">CSS To The Rescue</a></li>
                 <li><a href="#api">API</a></li>
                 <li><a href="#hcd">Human Centered Design</a></li>
                 <li><a href="#hackaton">Hackaton</a></li>
+                <li><a href="#meesterproef">Meesterproef</a></li>
             </ul>
         </aside>
-
+        <button id="theme-btn" class="theme-toggle-btn">🎨</button>
     </main>
 
     <script src="/script.js"></script>
 </body>
+
 </html>

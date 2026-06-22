@@ -9,19 +9,34 @@ html {
 }
 
 :root {
-    --bg: black;
-    --color: yellow;
+    /* Het Diepe Oceaan Blauwe thema (Jouw standaard Dark Mode) */
+    --bg: #1a365d; 
+    --color: #f1f5f9; 
     --text-h1: "Impact", Arial, Helvetica, sans-serif;
-    
-    /* Navigatie kleuren */
-    --nav-bg: rgba(15, 15, 15, 0.95);
-    --nav-accent: orange;
+    --nav-bg: rgba(26, 54, 93, 0.95); 
+    --nav-accent: #38bdf8; 
+    --section-bg: #2a4365; 
+    --section-text: #f1f5f9; 
+}
+
+/* Het nieuwe lichte crème thema (Jouw Light Mode) */
+body.light-theme {
+    --bg: #F3E9DC; 
+    --color: #2b2b2b; 
+    --nav-bg: rgba(255, 255, 255, 0.95); /* Witte navigatiebalk */
+    --nav-accent: #e07a5f; /* Warme roest-oranje kleur als accent */
+    --section-bg: #ffffff; /* Witte blokken */
+    --section-text: #2b2b2b; 
 }
 
 body {
     background-color: var(--bg);
     color: var(--color);
     font-family: var(--text-h1);
+}
+
+.theme-in-transition {
+    transition: background-color 0.5s ease, color 0.5s ease;
 }
 
 /* --- HEADER & HERO --- */
@@ -41,21 +56,53 @@ header {
 }
 
 h1 {
-    text-shadow: 4px 4px orange;
+    text-shadow: 4px 4px var(--nav-accent);
     font-size: 4em;
     text-align: center;
 }
 
 h2 {
-    text-shadow: 4px 2px 2px orange;
+    text-shadow: 4px 2px 2px var(--nav-accent);
     font-size: 2em;
     margin-top: 10px;
+}
+
+.hero-content h1 {
+    animation: popInGlow 1s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+    opacity: 0; /* Begint onzichtbaar */
+}
+
+.hero-content h2 {
+    animation: popInGlow 1s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+    opacity: 0;
+    animation-delay: 0.3s; /* Wacht 0.3s */
 }
 
 /* De dobbelsteen */
 .hero-content p {
     font-size: 4em; 
     margin-top: 20px;
+    animation: popInGlow 1s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+    opacity: 0;
+    animation-delay: 0.6s; /* Wacht 0.6s */
+}
+
+@keyframes popInGlow {
+    0% {
+        opacity: 0;
+        transform: translateY(-40px) scale(0.8);
+        text-shadow: 0 0 0 transparent;
+    }
+    60% {
+        opacity: 1;
+        transform: translateY(0) scale(1.05);
+        text-shadow: 0 0 30px var(--nav-accent);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+        text-shadow: 4px 4px var(--nav-accent);
+    }
 }
 
 /* --- NAVIGATIEBALK (HOOFDMENU) --- */
@@ -114,12 +161,13 @@ h2 {
 
 /* --- MAIN CONTENT (Algemene teksten) --- */
 section {
-    background-color: darkgray;
-    color: black; 
+    background-color: var(--section-bg); 
+    color: var(--section-text); 
+    transition: background-color 0.5s ease;
     margin: 3em auto;
     padding: 2em;
     max-width: 800px; 
-    box-shadow: 3px 3px 4px gray;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.3); /* Subtiele donkere schaduw */
     border-radius: 8px; 
 }
 
@@ -186,7 +234,7 @@ section {
 }
 
 .subnav-lijst a {
-    color: white;
+    color: var(--color);
     text-decoration: none;
     font-family: Arial, sans-serif;
     font-size: 1.1em;
@@ -226,6 +274,32 @@ section {
     }
 }
 
+/* --- PROJECT KNOPPEN (In de secties) --- */
+.page-content section a {
+    display: inline-block; /* Zorgt dat we padding en marges kunnen gebruiken */
+    margin-top: 20px;
+    padding: 12px 25px;
+    background-color: transparent; /* Doorzichtige achtergrond */
+    color: var(--nav-accent); /* Jouw neon-blauwe kleur */
+    border: 2px solid var(--nav-accent);
+    border-radius: 30px; /* Mooie ronde hoeken voor een moderne look */
+    text-decoration: none; /* Haalt het standaard streepje onder de link weg */
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 1em;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    transition: all 0.3s ease; /* Zorgt voor een soepele animatie */
+}
+
+/* Het magische effect als je er met je muis overheen gaat */
+.page-content section a:hover {
+    background-color: var(--nav-accent); /* De knop vult zich met blauw */
+    color: var(--bg); /* De tekst wordt donkerblauw voor het contrast */
+    box-shadow: 0 0 20px var(--nav-accent); /* Een felle neon gloed */
+    transform: translateY(-4px); /* De knop zweeft een klein stukje omhoog */
+}
+
 /* --- SCROLL PIJL --- */
 .scroll-arrow {
     position: absolute;
@@ -263,4 +337,255 @@ section {
 
 #begin-content {
     scroll-margin-top: 100px;
+}
+
+
+/* --- SPREKERS LAYOUT (Verspringend / Staggered) --- */
+.speakers-layout {
+    max-width: 1200px; /* We maken de container iets breder zodat ze goed kunnen verspringen */
+    margin: 4em auto;
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 4em; 
+}
+
+/* --- SPREKERS LAYOUT (Verspringend / Staggered) --- */
+.speakers-layout {
+    max-width: 1200px;
+    margin: 4em auto;
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 4em; 
+}
+
+/* De standaard kaart */
+.speaker-card {
+    width: 80%; 
+    max-width: 900px;
+    margin: 0; /* DIT FIXT HET! Overschrijft de automatische centrering van de algemene <section> */
+    display: flex;
+    align-items: flex-start;
+    gap: 40px;
+    background-color: var(--section-bg);
+    color: var(--section-text);
+    transition: transform 0.3s ease, background-color 0.5s ease;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    transition: transform 0.3s ease;
+    scroll-margin-top: 120px;
+}
+
+/* ONEVEN BLOKKEN (1, 3, 5, etc.) - Schuiven naar links */
+.speaker-card:nth-child(odd) {
+    align-self: flex-start;
+    border-left: 5px solid var(--nav-accent); 
+}
+
+/* EVEN BLOKKEN (2, 4, 6, etc.) - Schuiven naar rechts */
+.speaker-card:nth-child(even) {
+    align-self: flex-end; 
+    flex-direction: row-reverse; 
+    border-right: 5px solid var(--nav-accent); 
+}
+
+.speaker-card:hover {
+    transform: translateY(-5px);
+}
+
+/* --- DE FOTO --- */
+.speaker-foto {
+    flex: 1; 
+    display: flex;
+    justify-content: center;
+}
+
+.speaker-foto img {
+    width: 250px;
+    height: 250px;
+    object-fit: cover; 
+    border-radius: 50%; 
+    border: 4px solid var(--nav-accent); 
+    box-shadow: 0 0 25px rgba(56, 189, 248, 0.4); 
+    transition: transform 0.4s ease;
+}
+
+.speaker-foto img:hover {
+    transform: scale(1.05);
+}
+
+/* --- DE TEKST --- */
+.speaker-info {
+    flex: 2; 
+}
+
+.speaker-titel {
+    color: var(--nav-accent);
+    font-family: Arial, Helvetica, sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.9em;
+    margin-top: 8px; 
+    margin-bottom: 20px;
+}
+
+/* --- LEES MEER FUNCTIONALITEIT --- */
+.extra-tekst {
+    display: none; /* Verbergt de tekst standaard */
+    margin-top: 15px;
+}
+
+/* Deze class wordt straks door JavaScript toegevoegd om de tekst te tonen */
+.extra-tekst.toon {
+    display: block; 
+}
+
+/* De stijl voor de knop (Lijkt op je eerdere project-knoppen!) */
+.lees-meer-btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: transparent;
+    color: var(--nav-accent);
+    border: 2px solid var(--nav-accent);
+    border-radius: 30px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 0.9em;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    cursor: pointer; /* Verandert de muis in een handje */
+    transition: all 0.3s ease;
+}
+
+.lees-meer-btn:hover {
+    background-color: var(--nav-accent);
+    color: var(--bg);
+    box-shadow: 0 0 15px var(--nav-accent);
+}
+
+/* --- RESPONSIEF MAKEN (Voor mobiel) --- */
+@media (max-width: 800px) {
+    /* Op mobiel overschrijven we het verspringen, we willen alles gecentreerd en beeldvullend */
+    .speaker-card:nth-child(odd),
+    .speaker-card:nth-child(even) {
+        align-self: center;
+        width: 100%;
+        flex-direction: column;
+        text-align: center;
+        padding: 20px;
+        align-items: center;
+    }
+
+    .speaker-foto img {
+        width: 180px;
+        height: 180px;
+    }
+}
+
+/* --- THEMA KNOP --- */
+.theme-toggle-btn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: var(--nav-bg);
+    color: var(--nav-accent);
+    border: 2px solid var(--nav-accent);
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    font-size: 1.5em;
+    cursor: pointer;
+    z-index: 9999;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+    transition: all 0.3s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.theme-toggle-btn:hover {
+    transform: scale(1.1) rotate(15deg); /* Draait een beetje bij hover */
+    box-shadow: 0 0 25px var(--nav-accent);
+    background-color: var(--nav-accent);
+    color: var(--bg);
+}
+
+/* --- REFLECTIE PAGINA LAY-OUT --- */
+.reflectie-layout {
+    max-width: 1500px;
+    margin: 4em auto;
+    padding: 0 20px;
+}
+
+.intro-tekst {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 3em auto;
+}
+
+.leerdoelen-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px; /* Mooie ruimte tussen de drie kaarten */
+}
+
+/* De individuele Leerdoel Kaarten */
+.doel-card {
+    flex: 1; /* Zorgt dat ze alle drie exact even breed worden */
+    background-color: var(--section-bg);
+    color: var(--section-text);
+    padding: 40px 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    border-top: 5px solid var(--nav-accent); /* Toffe gekleurde rand bovenaan */
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.5s ease;
+    position: relative;
+    margin: 0; /* Voorkomt de auto-margin van de algemene <section> tag */
+}
+
+/* Hover effect: kaart lift iets op */
+.doel-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+}
+
+/* Het toffe ronde nummer icoontje op de kaart */
+.doel-icoon {
+    position: absolute;
+    top: -25px; /* Steekt precies voor de helft uit de bovenkant! */
+    left: 30px;
+    width: 50px;
+    height: 50px;
+    background-color: var(--nav-bg);
+    color: var(--nav-accent);
+    border: 3px solid var(--nav-accent);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5em;
+    font-weight: bold;
+    font-family: var(--text-h1);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Tussenkopjes binnen de kaart */
+.aanpak-titel {
+    color: var(--nav-accent);
+    margin-top: 25px;
+    margin-bottom: 5px;
+    font-size: 1.1em;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* --- RESPONSIEF (Voor tablets en mobiel) --- */
+@media (max-width: 950px) {
+    .leerdoelen-container {
+        flex-direction: column; /* Zet de kaarten onder elkaar op kleinere schermen */
+        gap: 50px; /* Iets meer ruimte ertussen zodat de nummers niet overlappen */
+    }
 }

@@ -1,28 +1,127 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="nl">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/style.css">
-    <title>Document</title>
+    <title>Reflectie - Meesterschap-Blog</title>
 </head>
+
 <body>
+    <script>
+        if (localStorage.getItem('websiteThema') === 'light') {
+            document.body.classList.add('light-theme');
+        }
+    </script>
     <header>
         <nav class="special-nav">
             <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="sprint0.html">Sprint 0</a></li>
-                <li><a href="bt.html">BrowserTech</a></li>
-                <li class="active"><a href="css.html">CSS</a></li>
-                <li><a href="api.html">API</a></li>
-                <li><a href="hcd.html">HCD</a></li>
-                <li><a href="hackaton.html">Hackaton</a></li>
-                <li><a href="weekly_geek.html">Weekly geek</a></li>
+                <li><a href="/index.html">Home</a></li>
+                <li><a href="/pages/vakken.html">Vakken</a></li> <!-- 'active' staat nu hier -->
+                <li><a href="/pages/sprekers.html">Sprekers</a></li>
+                <li class="active"><a href="/pages/reflectie.html">Reflectie</a></li>
                 <!-- De gloeiende lijn -->
                 <div class="nav-indicator"></div>
             </ul>
         </nav>
-        </header>
-        <script src="/script.js"></script>
+
+        <div class="hero-content">
+            <h1>Reflectie</h1>
+            <h2>Leerdoelen en hoe het allemaal is gegaan</h2>
+        </div>
+
+        <a href="#begin-content" class="scroll-arrow">↓</a>
+
+    </header>
+    <main class="reflectie-layout" id="begin-content">
+
+        <div class="intro-tekst">
+            <h2>Mijn leerdoelem</h2>
+            <p class="normale-tekst">De leerdoelen waar ik aan wil werken tijdens de meesterproef</p>
+        </div>
+
+        <div class="leerdoelen-container">
+            <section class="doel-card">
+                <div class="doel-icoon">1</div>
+                <h3>Beter leren animeren (met keyframes)</h3>
+                <h4 class="aanpak-titel">Mijn Aanpak</h4>
+                <p class="normale-tekst">Ik wil graag beter leren animeren. Al is dit met iets verplaatsen van de ene
+                    kant naar de andere of op basis van een scroll. Animatiet, al klein, maken een website net wat
+                    mooier lijken. Ik wil dit met keyframes doen, maar andere manieren vinden voor animaties vind ik ook
+                    niet erg</p>
+                <h4 class="aanpak-titel">Reflectie</h4>
+                <p class="normale-tekst">Ik heb bij dit project best wel met wat animaties gewerkt. De eerste waarbij ik
+                    dat heb gedaan is in de eerste week. Ik had hierbij de figma heel letterlijk nagemaakt. Ik had
+                    hierbij 3 kolommen met grafieken. Ik had hierbij een scroll animatie gemaakt waarbij ze uit elkaar
+                    gaan bij het scrollen. Deze visualisatie is uiteindelijk wel eruit gehaald, maar heb hierdoor wel
+                    geleerd hoe je makkelijk scroll animaties maakt. Ik had dit namelijk gedaan met de Intersection
+                    Observer API gedaan. <br> Na die visualitie heb ik me gefocusd op een aquarium idee. Ik heb hierbee
+                    gezorgd dat de vissen van de rechterkant naar de linkerkant zwemmen. Dit heb ik gedaan met
+                    keyframes. Ook heb ik om het aquarium er wat levendiger uit te laten zien bubbels van beneden naar
+                    boven laten gaan. Dit is ook met keyframes gedaan. <br><br> Ik vind dat ik bij dit onderdeel
+                    redelijk wat geleerd heb. Als ik er terug op kijk had ik wat meer willen doen met dit leerdoel,
+                    vooral ging het mij om nieuwe manieren van animeren ontdekken. Wel ben ik blij met wat ik wel
+                    geleerd heb.
+                </p>
+            </section>
+
+            <section class="doel-card">
+                <div class="doel-icoon">2</div>
+                <h3>Ik wil beter in teams kunnen werken</h3>
+                <h4 class="aanpak-titel">Mijn Aanpak</h4>
+                <p class="normale-tekst">Ik wil graag beter in teams kunnen werken. Dit is erg belangrijk aangezien je
+                    later in het werkveld waarschijnlijk ook niet in je eentje gaat werken aan een opdracht. Ik wil
+                    hierbij letten op op tijd beginnen met de opdracht. Al maak ik iets nieuws of ga verbeteren op een
+                    opdracht na de feedback van de opdrachtgever. Dit brengt me ook naar het volgende punt. <br> Ik wil
+                    ook
+                    goed samen met de opdrachtgever kunnen werken. Dit betekent goed luisteren naar zijn feedback en
+                    aantekeningen daarvan maken, zodat het product is zoals hij wil. Hierbij dus minder doen wat ik wil
+                    en hoe ik het zou doen. <br> Ook met m'n teamgenoten moet ik goed samenwerken. Ik wil daarom goede
+                    code conventions opbouwen zodat het allemaal goed verloopt. Ook in aparte branches en mappen werken
+                    zodat we niet elkaars dingen overschrijven.</p>
+                <h4 class="aanpak-titel">Reflectie</h4>
+                <p class="normale-tekst">Ik heb bij dit project natuurlijl heel veel gedaan voor dit leerdoel. Ik ben
+                    dan ook erg tevreden over hoeveel ik wel niet geleerd heb voor dit leerdoel bij dit project. Ten
+                    eerste hebben we ons allemaal en ik ook heel goed aan de code conventions gehouden die we hadden
+                    aangemaakt. Ook was het redelijk nieuw om voor een echte opdrachtgever te werken. Dit ging allemaal
+                    best wel goed. De feedback momenten zijn goed gegaan en heb goed naar hem kunnen luisteren. Ook ben
+                    ik elke keer op tijd begonnen, zodat ik bij het volgende moment mijn gedeelte af had en opnieuw
+                    feedback kon krijgen. Ook uberhaubt het samenwerken met teamgenoten ging goed. We hadden weinig
+                    merge conflicts. Ook was het fijn dat we aan elkaar vragen konden stellen voor als we iets niet
+                    zeker wisten. <br><br> Ik heb bij dit leerdoel heel veel geleerd. Ik weet nu heel goed hoe het is om
+                    met een echte opdrachtgever te werken. Ook kan je natuurlijk vragen terug stellen als je het ergens
+                    niet mee eens bent. Dat mag natuurlijk ook. Ook meerdere commits gemaakt, zodat je altijd kan zien
+                    wat je hebt gedaan. Ik vond dit leerdoel daarom ook een hele goede om aan te werken. Wat dit is
+                    allemaal handig om te weten voor het werkveld later.</p>
+            </section>
+
+            <section class="doel-card">
+                <div class="doel-icoon">3</div>
+                <h3>Wat meer 'out of the box' denken</h3>
+                <h4 class="aanpak-titel">Mijn Aanpak</h4>
+                <p class="normale-tekst">Ik wil iets maken redelijk bijzonder is. Hierbij wil ik niet aan standaard
+                    websites denken. Ik wil iets maken waarbij je gelijk denk 'O Wat Gaaf'. </p>
+                <h4 class="aanpak-titel">Reflectie</h4>
+                <p class="normale-tekst">Ik begon met dit leerdoel eigenlijk niet heel goed. Ik dacht namelijk nog niet
+                    heel erg na over iets bijzonders. We kregen een figma file en wilde dat namaken. Dit was eigenlijk
+                    niet de bedoeling want dat waren eigenlijk gewoon voorbeelden. Ik had namelijk gewoon letterlijke
+                    grafieken gemaakt en dat is nou niet perse heel bijzonder. Nadat we te horen kregen dat het effe wat
+                    anders moest ben ik gaan nadenken. Hoe kan je nou echt data laten zien, maar niet perse met een
+                    grafiek. Ik kwam toen op het idee om een aquarium te maken. Hierbij had het aantal vissen direct
+                    invloed op het aantal keer dat ze gespot waren. Je vind zo'n idee niet heel snel op een andere
+                    website en is best bijzonder. Ik heb dit onderdeel met de feedback zelfs steeds meer out of the box
+                    gebracht, omdat er blijkbaar nog veel meer mogelijkheden waren om het allemaal goed te laten zien.
+                    Ik heb bijvoorbeeld ook met de grootes van de vissen geschaalt en ook met de zwemsnelheid van de
+                    vissen. De grootte van de gracht en nog meer! <br><br> Ik vind dit leerdoel ook heel erg geslaagd.
+                    Ik heb iets gemaakt waar ik echt trots op ben en ook niet heel standaard is. Normaal heb ik daar
+                    best wat moeite mee, aangezien ik best standaard denk. Maar ben echt blij met dit.</p>
+            </section>
+        </div>
+
+        <button id="theme-btn" class="theme-toggle-btn">🎨</button>
+    </main>
+    <script src="/script.js"></script>
 </body>
+
 </html>
